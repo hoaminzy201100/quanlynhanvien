@@ -1,0 +1,54 @@
+<div class="container-fluid" style="background-color:#29ac64; border-radius: 1%;">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-rose card-header-icon">
+
+          <h4 class="card-title"><b>Quản Lý nhân viên </b></h4>
+        </div>
+        <div class="card-body">
+          <div class="horizontal">
+            <div class="pull-right">
+              <a class="btn btn-outline-primary"  [routerLink]="['/nhanvien/add']" ><i class="glyphicon glyphicon-plus"></i>Thêm nhân viên mới</a>
+            </div>
+          </div>
+<br>
+          <div class="clearfix"></div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <!-- <th class="text-center">Số thứ tự</th> -->
+                <th class="text-center">Mã nhân viên</th>
+                <th>Tên nhân viên</th>
+                <th>Phòng ban làm việc</th>
+                <th>Số CMND/CCCD</th>
+                <th>Ngày sinh</th>
+                <th>Liên hệ</th>
+                <th class="text-center">Thao Tác</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor ="let item of nhanvien">
+                <!-- <td>{{ item.id + item.id }}</td> -->
+                <td>NV{{ item.id }}</td>
+                <td>{{ item.ten_nv }}</td>
+                <td>{{ item.ten_pb}}</td>
+                <td>{{ item.so_cmnd }}</td>
+                <td>{{ item.ngay_sinh}}</td>
+                <td>{{item.lien_he }}</td>
+                <td>
+                  <a> <button class="btn btn-danger" [routerLink]="['/nhanvien/edit/',item.id]" >Cập nhật</button> </a>&nbsp; 
+                  <a> <button class="btn btn-warning" (click)="onDeleteNhanvien(item.id)">Xóa</button> </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
